@@ -15,6 +15,7 @@ const Nav = () => {
 
     const handleInput = (e) => {
       const value = e.target.value
+      setGenre(false)
 
       if(value.length !== 0) {
         setValue(value)
@@ -32,6 +33,7 @@ const Nav = () => {
     }
     function handleGenre() {
       setGenre(!genre)
+      setData([])
     }
   
   

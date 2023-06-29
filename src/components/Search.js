@@ -18,7 +18,12 @@ export default function Search({data, setOpen ,setValue, setData}) {
               {data.map(data => (
                 <Link key={data.id} to={`/${data.id}`} onClick={handleErase}>                
                   <div className='flex gap-3'>
-                    <img className='w-[4rem] h-[6rem] object-cover' src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt={data.title} /> 
+                    <img 
+                    className='w-[4rem] h-[6rem] object-cover'
+                    src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+                    onError={(e) => {e.target.onError=null; e.target.src= `/notFound.png`}}
+                    alt={data.title}
+                    /> 
                     <div className='flex flex-col gap-3'>
                       <p className='text-lg'>{data.title}</p>
                       <p className='text-slate-300'>{data.release_date}</p>
