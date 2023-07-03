@@ -17,7 +17,16 @@ import Loading from '../Loading';
 
 
 
+
 export default function GenreList() {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    })
+  }
 
     const { id } = useParams()
 
@@ -50,7 +59,7 @@ export default function GenreList() {
         {genre_data.results && 
         <div className='grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-5 p-5'>
         {genre_data.results.map(genre => (
-          <Link key={genre.id} to={`/${genre.id}`}><Movie name={genre.title} img={genre.poster_path} date={genre.release_date} /></Link>
+          <Link onClick={scrollToTop} key={genre.id} to={`/${genre.id}`}><Movie name={genre.title} img={genre.poster_path} date={genre.release_date} /></Link>
           ))}
         </div>
         }
